@@ -5,8 +5,6 @@ import java.time.Instant;
 
 public class StudentCourseDto {
 
-	private Long id;
-
 	private Long idStudent;
 
 	private Long idCourse;
@@ -19,27 +17,19 @@ public class StudentCourseDto {
 	public StudentCourseDto(){}
 	public StudentCourseDto(Long idStudent, Long idCourse) {
 		Timestamp ts = Timestamp.from(Instant.now());
-		this.id = 0L;
 		this.idCourse = idCourse;
 		this.idStudent = idStudent;
 		this.createdAt = ts;
 		this.updatedAt = ts;
 	}
 
-	public StudentCourseDto(Long id,Long idStudent, Long idCourse, Timestamp createdAt, Timestamp updatedAt) {
+	public StudentCourseDto(Long idStudent, Long idCourse, Timestamp createdAt, Timestamp updatedAt) {
 		this(idStudent, idCourse);
-		this.id = id;
 		this.createdAt = createdAt;
 		this.updatedAt = updatedAt;
 	}
 
-	public Long getId() {
-		return id;
-	}
 
-	public void setId(Long id) {
-		this.id = id;
-	}
 
 	public void setIdStudent(Long idStudent){
 		this.idStudent = idStudent;

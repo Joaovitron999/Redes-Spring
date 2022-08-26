@@ -9,4 +9,6 @@ import org.springframework.data.repository.query.Param;
 import java.util.List;
 
 public interface StudentCourseRepository extends JpaRepository<StudentCourse, Long> {
+    public List<StudentCourse> findAllByIdStudent(long id);
+
 }
