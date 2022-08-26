@@ -117,7 +117,7 @@ public class CourseController {
 	@ResponseStatus(HttpStatus.OK)
 	public CourseDto updateCourseStudents(@PathVariable Long id, @RequestBody List<Long> courseIds) {
 		throw new ResponseStatusException(HttpStatus.NOT_FOUND, "This endpoint must to be implemented.");
-		//FAZERRR
+
 	}
 
 	/**
