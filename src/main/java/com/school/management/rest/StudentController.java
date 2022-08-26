@@ -136,7 +136,7 @@ public class StudentController {
      * @return list of courses the student is enrolled.
      */
     @GetMapping(value = "/{id}/courses")
-    @ResponseStatus(HttpStatus.NOT_FOUND)
+    @ResponseStatus(HttpStatus.OK)
     public List<CourseDto> getCoursesFromStudent(@PathVariable Long id) {
         return studentCourseService.getCoursesFromStudent(id);
     }

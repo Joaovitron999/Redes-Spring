@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 @Service
@@ -28,9 +29,21 @@ public class StudentCourseService {
         this.courseRepository = courseRepository;
     };
     public List<CourseDto> getCoursesFromStudent(long id){
-        studentCourseRepository.findAllByIdStudent(id).forEach(studentCourse -> System.out.println(studentCourse.getIdCourse()));
+        ArrayList<CourseDto> aaa = new ArrayList<CourseDto>();
+        ArrayList<StudentCourse> bbb = new ArrayList<StudentCourse>();
+        studentCourseRepository.findAllByIdStudent(id).forEach(studentCourse -> bbb.add(studentCourse));
 
-        return new ArrayList<CourseDto>();
+        Iterator<StudentCourse> it = bbb.iterator();
+        while(it.hasNext()) {
+            CourseDto x = new CourseDto();
+            x.setId(it.next().getIdCourse());
+            aaa.add(x);
+            System.out.println(it.next().getIdCourse());
+        }
+
+
+
+        return aaa;
     }
 
     public void cadCoursesStudent(Long id, List<Long> courseIds) {
